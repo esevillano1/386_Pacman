@@ -1,23 +1,31 @@
-import pygame
-
-from settings import Settings
-from menu import Menu
-# from portal import Portal
-# from maze import Maze
-# from ghost import Ghost
+import pygame, decimal
 
 
-def run_game():
-    """Initialize the game"""
-    pp_settings = Settings()
+class Pacman:
 
-    screen = pygame.display.set_mode((pp_settings.screen_width, pp_settings.screen_height))
-    pygame.display.set_caption("Pacman Portal")
+    def __init__(self, settings, screen, imagename):
+        self.settings = settings
+        self.screen = screen
+        self.image = pygame.image.load(imagename)
+        self.rect = self.image.get_rect()
+        self.x_dir = 0
+        self.y_dir = 0
+        self.rect.x = settings.init_x
+        self.rect.y = settings.init_y
+        self.timer = 0
 
-    menu = Menu(pp_settings, screen)
+    def blitme(self):
+        self.screen.blit(self.image, self.rect)
 
-    menu.main_menu()
-
-
-if __name__ == "__main__":
-    run_game()
+    def update(self, images, index):
+        timer = int(round(pygame.time.get_ticks() / 1000))
+        # timer = round(timer, 3)
+        if timer - self.timer >= 1:
+            self.timer = timer
+            if index < len(images) - 1:
+                index += 1
+            else:
+                index = 0
+        self.image = pygame.image.load(images[index])
+        self.rect.x += (self.settings.pacman_speed * self.x_dir)
+        self.rect.y += (self.settings.pacman_speed * self.y_dir)
