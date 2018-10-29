@@ -150,13 +150,13 @@ class Game:
     def play(self):
         eloop = EventLoop(self.settings, self.pacman, finished=False)
 
-        # while not self.stats.game_active:
-        #     if self.settings.high_score_screen:
-        #         self.menu.high_scores()
-        #     else:
-        #         self.menu.start_menu(self.play_button, self.high_scores_button)
-        #     self.check_events()
-        #     pygame.display.update()
+        while not self.stats.game_active:
+            if self.settings.high_score_screen:
+                self.menu.high_scores()
+            else:
+                self.menu.start_menu(self.play_button, self.high_scores_button)
+            self.check_events()
+            pygame.display.update()
 
         while not eloop.finished:
             self.check_events()
@@ -225,7 +225,7 @@ class Game:
     def check_collision(self):
         self.check_dot_collisions()
         self.check_power_pill_collisions()
-        self.check_brick_collisions()
+        # self.check_brick_collisions()
 
     def check_dot_collisions(self):
         for dot in self.maze.dots:
@@ -239,30 +239,30 @@ class Game:
                 self.maze.pills.remove(pill)
                 self.stats.score += self.settings.power_pill_value
 
-    def check_brick_collisions(self):
-        for brick in self.maze.bricks:
-            if self.pacman.collider.colliderect(brick):
-                if self.pacman.collider.left <= brick.right and brick.bottom >= self.pacman.collider_y >= brick.top:
-                    self.pacman.move_left = False
-                    print("cant move left")
-                else:
-                    self.pacman.move_left = True
-                if self.pacman.collider.right >= brick.left and brick.bottom >= self.pacman.collider_y >= brick.top:
-                    self.pacman.move_right = False
-                    print("cant move right")
-                else:
-                    self.pacman.move_right = True
-                if self.pacman.collider.top <= brick.bottom and brick.left <= self.pacman.collider_x <= brick.right:
-                    self.pacman.move_up = False
-                    print("cant move up")
-                else:
-                    self.pacman.move_up = True
-                if self.pacman.collider.bottom >= brick.top and brick.left <= self.pacman.collider_x <= brick.right:
-                    self.pacman.move_down = False
-                    print("cant move down")
-                else:
-                    self.pacman.move_down = True
-                return
+    # def check_brick_collisions(self):
+    #     for brick in self.maze.bricks:
+    #         if self.pacman.collider.collidepoint(brick.left[0], brick.left[1]):
+    #             if self.pacman.collider.left <= brick.right and brick.bottom >= self.pacman.collider_y >= brick.top:
+    #                 self.pacman.move_left = False
+    #                 print("cant move left")
+    #             else:
+    #                 self.pacman.move_left = True
+    #             if self.pacman.collider.right >= brick.left and brick.bottom >= self.pacman.collider_y >= brick.top:
+    #                 self.pacman.move_right = False
+    #                 print("cant move right")
+    #             else:
+    #                 self.pacman.move_right = True
+    #             if self.pacman.collider.top <= brick.bottom and brick.left <= self.pacman.collider_x <= brick.right:
+    #                 self.pacman.move_up = False
+    #                 print("cant move up")
+    #             else:
+    #                 self.pacman.move_up = True
+    #             if self.pacman.collider.bottom >= brick.top and brick.left <= self.pacman.collider_x <= brick.right:
+    #                 self.pacman.move_down = False
+    #                 print("cant move down")
+    #             else:
+    #                 self.pacman.move_down = True
+    #             return
 
     def check_play_button(self, settings, play_button, mouse_x, mouse_y):
         """Start a new game when the player clicks Play."""
