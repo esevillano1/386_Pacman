@@ -12,6 +12,17 @@ class Maze:
         with open(self.filename, "r") as f:
             self.rows = f.readlines()
 
+        # self.node = 0
+        # self.nodes = [{"x": 0, "y": 0}]
+
+        self.ghost = 0
+        self.ghost_location = [
+                                {"x": 0, "y": 0},
+                                {"x": 0, "y": 0},
+                                {"x": 0, "y": 0},
+                                {"x": 0, "y": 0}
+                              ]
+
         self.bricks = []
         self.dots = []
         self.pills = []
@@ -60,8 +71,16 @@ class Maze:
                 if col == "v":
                     self.vportals.append(pygame.Rect(ncol * dx, nrow * dy, rvportal.width, rvportal.height))
                 if col == "p":
-                    self.settings.init_x = ncol * dx - 5
-                    self.settings.init_y = nrow * dy - 5
+                    self.settings.init_x = ncol * dx
+                    self.settings.init_y = nrow * dy + Maze.BRICK_SIZE/2
+                if col == "g":
+                    location = {"x": ncol * dx - Maze.BRICK_SIZE * (2 - self.ghost), "y": nrow * dy - 6.5}
+                    self.ghost_location[self.ghost].update(location)
+                    self.ghost += 1
+                # if col == "n" or col == "d":
+                #     location = {"x": ncol * dx, "y": nrow * dy}
+                #     self.nodes[self.node].update(location)
+                #     self.node += 1
 
     def blitme(self):
         for rect in self.bricks:

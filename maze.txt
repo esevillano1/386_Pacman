@@ -17,28 +17,28 @@ X             XXX         XXX         XXX             X
 X n . . . . n XXX n . . n XXX n . . n XXX n . . . . n X
 X             XXX         XXX         XXX             X
 XXXXXXXXXXX . XXXXXXXXX   XXX   XXXXXXXXX . XXXXXXXXXXX
-          X   XXXXXXXXX         XXXXXXXXX   X
+          X   XXXXXXXXX   XXX   XXXXXXXXX   X
           X . XXX                     XXX . X
-          X   XXX                     XXX   X
+          X   XXX d     d     d     d XXX   X
           X . XXX                     XXX . X
           X   XXX   XXXXXoooooXXXXX   XXX   X
 XXXXXXXXXXX . XXX   X             X   XXX . XXXXXXXXXXX
 X                   X             X                   X
-h           n       X   g g g g   X       n           X
+h           n     d X   g g g g   X d     n           X
 X                   X             X                   X
 XXXXXXXXXXX . XXX   X             X   XXX . XXXXXXXXXXX
           X   XXX   XXXXXXXXXXXXXXX   XXX   X
           X . XXX                     XXX . X
-          X   XXX          p          XXX   X
+          X   XXX d        p        d XXX   X
           X . XXX                     XXX . X
           X   XXX   XXvXXXXXXXXXXXX   XXX   X
 XXXXXXXXXXX . XXX   XXvXXXXXXXXXXXX   XXX . XXXXXXXXXXX
 X                         XXX                         X
-X n . . . . n . . . . . n XXX n . . n . . n . . . . n X
+X n . . . . n . . n . . n XXX n . . n . . n . . . . n X
 X                         XXX                         X
 h . XXXXXXX . XXXXXXXXX . XXX . XXXXXXXXX . XXXXXXX . X
 X   XXXXXXX   XXXXXXXXX   XXX   XXXXXXXXX   XXXXXXX   X
-X . XXXXXXX . XXXXXXXXX .     . XXXXXXXXX . XXXXXXX . X
+X . XXXXXXX . XXXXXXXXX . XXX . XXXXXXXXX . XXXXXXX . X
 X       XXX                                 XXX       X
 X O . n XXX n . . n . . n . . n . . n . . n XXX n . O X
 X       XXX                                 XXX       X
